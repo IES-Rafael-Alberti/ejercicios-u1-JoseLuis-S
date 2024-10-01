@@ -13,7 +13,7 @@ precioFinal = precio * (iva + 1)
 precioFinal = round(precioFinal, 2)
 
 # Muestra por pantalla el resultado
-print('El precio del articulo es: ' + str(precioFinal))
+print(f'El precio del articulo es: {precioFinal}')
 
 
 
