@@ -8,5 +8,9 @@ def calculoPrecio():
     precioFinal = round(precioFinal, 2)
     print(f'El precio del articulo es: {precioFinal}')
 
-# Imprime la funcion por pantalla
-calculoPrecio()
+def main():
+    calculoPrecio()
+
+# Llama a la funcion main
+if __name__ == '__main__':
+    main()

@@ -8,5 +8,5 @@ partes = listaCompra.split(',')
 print("Los productos en tu cesta son:")
 # Elimina los espacios que hay entre los productos
 for producto in partes:
-    print(producto.lstrip().rstrip())
+    print(producto.strip())
     

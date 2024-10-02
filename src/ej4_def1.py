@@ -1,16 +1,15 @@
 # Funcion SIN PARAMETROS que lee la temperatura en Fahrenheit y la devuelve en Celsius
-def cambioCF ():
+def cambioCF():
+    tempF = float(input('Introduce la temperatura en grados Fahrenheit: '))
     tempC = ((tempF - 32) * 5) / 9 
     tempC = round(tempC, 2)
-    return tempC
+    tempF = round(tempF, 2)
+    return 'La temperatura en celsius es {}°C ({})°F'.format(tempC, tempF)
 
-# Lee la temperatura en Fahrenheit
-tempF = float(input('Introduce la temperatura en grados Fahrenheit: '))
+# Define el main y llama la funcion cambio
+def main():
+    print(cambioCF())
 
-# Invierte la operacion hecha para obtener tempC para volver a obtener tempF y redondea
-tempF = (cambioCF() * 9/5) + 32
-tempF = round(tempF, 2)
-
-# Muestra el resultado por pantalla
-print('La temperatura en celsius es', cambioCF(),'°C ' f'({tempF}°F)')
-
+# Llama a la funcion main
+if __name__ == '__main__':
+    main()
