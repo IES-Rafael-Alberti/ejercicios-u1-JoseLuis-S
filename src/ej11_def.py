@@ -1,12 +1,11 @@
-# Define la funcion sumNum que lee un numero n, calcula la suma de todos los enteros hasta n y lo muestra
-def sumNum ():
-    n = int(input('Introduce un numero entero: '))
-    resultado = int((n*(n + 1))/2)
-    return 'La suma de todos los enteros desde 1 hasta {} es {}'.format(n, resultado)
+# Define la funcion sumNum que calcula la suma de todos los enteros hasta un numero
+def sumNum (num):
+    return int((num*(num + 1))/2)
 
-# Define la funcion main y llama a sumNum
+# Define la funcion main, lee el entero y muestra por pantalla la suma
 def main():
-    print(sumNum())
+    n = int(input('Introduce un numero entero: '))
+    print('La suma de todos los enteros desde 1 hasta {} es {}'.format(n, sumNum(n)))
 
 # Llama a la funcion main
 if __name__ == '__main__':
