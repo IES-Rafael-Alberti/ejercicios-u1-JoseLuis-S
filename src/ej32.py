@@ -1,23 +1,23 @@
-# Define la funcion divisoresNum que calcula los divisores de un numero
-def divisoresNum(num):
-    # Crea una lista para guardar los divisores del numero introducido
-    divisores = []
-    # Comprueba desde 1 hasta el mismo numero los divisores y los va guardando
-    # en la lista divisores
-    for i in range (1, num + 1):
-        division = num % i 
-        if division == 0:
-            divisores.append(i)
-    return divisores
+# Define la funcion que calcula la serie Fibonacci hasta el numero introducido
+def serieFibonacci(num):
+    # Crea una lista llamada serie, con los dos primeros valores de la serie, en
+    # la que se iran guardando cada uno de los valores consiguientes
+    serie = [0, 1]
+    # Mientras la suma de los dos ultimos numeros de la lista sea menor o igual al
+    # numero introducido, se sumaran esos valores y se añadira el resultado de la
+    # operacion a la lista
+    while serie[-1] + serie[-2] <= num: 
+        serie.append(serie[-1] + serie[-2])  
+    return serie  
 
 # Define la funcion pedirNum, que lee un numero y lo devuelve
 def pedirNum():
     # Lee el numero
-    num = input('Introduce un numero entero para saber sus divisores: ')
+    num = input('Introduce el numero hasta el que generar la serie Fibonacci: ')
     # Llama a la funcion comprobar para asegurar que el valor introducido
     # sea un numero
     while not comprobarNum(num):
-        num = input('ERROR, introduce un numero entero: ')
+        num = input('ERROR, introduce un numero: ')
     return int(num)
 
 # Define la funcion comprobarNum que asegura que el numero introducido sea
@@ -45,8 +45,8 @@ def comprobarNum(num: str):
 # Define la funcion main
 def main():
     num = pedirNum()
-    divisores = divisoresNum(num)
-    print(f'Los divisores de {num} son: {divisores}')
+    serie = serieFibonacci(num)
+    print(f'La serie Fibonacci hasta el numero {num} es: {serie}')
 
 # Ejecuta la funcion main
 if __name__ == '__main__':
