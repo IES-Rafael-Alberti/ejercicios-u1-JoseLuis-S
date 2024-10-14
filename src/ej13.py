@@ -1,3 +1,7 @@
+'''
+Este algoritmo calcula la division entre dos numeros y te muestra el cociente y el resto
+'''
+
 # Lee tanto el dividendo como el divisor
 n = int(input('Introduce el dividendo de la division: '))
 m = int(input('Introduce el divisor de la division: '))

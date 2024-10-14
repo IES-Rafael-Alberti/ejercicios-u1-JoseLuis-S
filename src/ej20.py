@@ -1,3 +1,8 @@
+'''
+Este algoritmo filtra el numero de telefono tras introducir un formato en concreto
+de numeros telefonicos
+'''
+
 # Lee el numero de telefono con el formato predeterminado
 numeroCompleto = input('Introduce el numero con el siguiente formato (prefijo-numero-extension): ')
 

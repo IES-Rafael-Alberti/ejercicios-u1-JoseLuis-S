@@ -1,3 +1,7 @@
+'''
+Este algoritmo calcula la cantidad de IVA que se ha pagado por un producto
+'''
+
 # Entrada del precio con IVA
 precioInicial = float(input('Introduce el precio con IVA: '))
 

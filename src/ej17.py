@@ -1,3 +1,7 @@
+'''
+Este algoritmo muestra por pantalla un nombre el numero de veces introducido
+'''
+
 # Lee el nombre
 nombre = input('Introduce tu nombre: ')
 # Lee el numero de veces que quiere que se repita

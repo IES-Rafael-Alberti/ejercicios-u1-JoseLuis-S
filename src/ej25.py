@@ -1,3 +1,8 @@
+'''
+Este algoritmo muestra que dia, que mes y en que año has nacido tras introducirlo con 
+el siguiente formato: (DD/MM/AAAA)
+'''
+
 # Declara una variable con valor / para asegurar que la fecha esta en el formato adecuado
 caracter = '/'
 

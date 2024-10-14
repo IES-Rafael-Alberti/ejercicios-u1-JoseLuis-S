@@ -1,3 +1,7 @@
+'''
+Este algoritmo hace una serie de operaciones con unos datos
+'''
+
 # Entrada de variables
 ancho = 17
 alto = 12.0

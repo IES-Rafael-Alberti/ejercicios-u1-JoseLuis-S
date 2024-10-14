@@ -1,3 +1,7 @@
+'''
+Este algoritmo calcula la suma de tres numeros
+'''
+
 # Entrada de los numeros a operar
 num1 = float(input('Introduce el primer numero: ')) 
 num2 = float(input('Introduce el segundo numero: ')) 

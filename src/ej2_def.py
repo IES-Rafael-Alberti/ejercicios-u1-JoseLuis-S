@@ -1,3 +1,7 @@
+'''
+Este algoritmo calcula el precio total por las horas trabajadas
+'''
+
 # Funcion para calcular el pago total por las horas trabajadas
 def pagoTotal (horas, precioHora):
     return horas * precioHora

@@ -1,3 +1,7 @@
+'''
+Este algoritmo muestra cuantos centimos y cuantos euros se han pagado 
+'''
+
 # Importa la funcion que permite separar con varias opciones
 import re
 

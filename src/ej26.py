@@ -1,3 +1,7 @@
+'''
+Este algoritmo lee una lista de la compra separada por comas y nombra los productos de 1 en 1
+'''
+
 # Lee el la lista de la compra separada por comas
 listaCompra = input('Introduce tu lista de la compra separada por comas: ')
 

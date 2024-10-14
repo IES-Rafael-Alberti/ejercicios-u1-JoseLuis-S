@@ -1,3 +1,7 @@
+'''
+Este algoritmo convierte los grados Celsius en grados Fahrenheit
+'''
+
 # Entrada de grados Celsius
 celsius = float(input('Introduce la temperatura en grados Celsius: '))
 

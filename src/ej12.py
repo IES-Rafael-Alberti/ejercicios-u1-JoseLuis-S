@@ -1,3 +1,7 @@
+'''
+Este algoritmo calcula el IMC de una persona
+'''
+
 # Lee el peso y la altura 
 peso = float(input('Introduce tu peso corporal en kilogramos: '))
 altura = float(input('Introduce tu altura en metros: '))

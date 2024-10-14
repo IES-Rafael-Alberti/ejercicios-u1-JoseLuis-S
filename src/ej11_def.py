@@ -1,3 +1,7 @@
+'''
+Este algoritmo calcula la suma de todos los enteros hasta el numero introducido
+'''
+
 # Define la funcion sumNum que calcula la suma de todos los enteros hasta un numero
 def sumNum (num):
     return int((num*(num + 1))/2)

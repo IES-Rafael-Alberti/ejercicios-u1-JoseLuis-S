@@ -1,3 +1,8 @@
+'''
+Este algoritmo calcula el precio total por las horas trabajadas
+
+'''
+
 # Entrada de horas
 horas = float(input('Horas de trabajo: '))
 

@@ -1,10 +1,16 @@
+'''
+Este algoritmo calcula el area de un triangulo, en m o cm, a partir de tres lados
+'''
+
 import math
 
+# Define la funcion calcular area que calcula el area en funcion de 3 lados
 def calcular_area (ladoA, ladoB, ladoC):
     semiperimetro = (ladoA + ladoB + ladoC)/2
     area = math.sqrt( semiperimetro * (semiperimetro - ladoA) * (semiperimetro - ladoB) * (semiperimetro - ladoC))
     return area
 
+# Define la funcion comprobarNum que comprueba que el numero introducido sea un numero
 def comprobarNum(num: str):
     # Elimina los espacios tras convertir num en str
     num = num.strip()
@@ -36,17 +42,47 @@ def pedirLado(index):
         num = input('ERROR, introduce un numero: ')
     return float(num)
 
-# Define la funcion main
-def main():
+# Define la funcion pedir_unidad_medida que pide si la unidad es cm o m
+def pedir_unidad_medida():
+    unidadMedida = input('Introduce la unidad de medida (cm o m): ')
+
+    # Mientras la unidad no sea cm o m seguira pidiendo la unidad
+    while unidadMedida != 'cm' and unidadMedida != 'm':
+        unidadMedida = input('ERROR, introduce la unidad de medida (cm o m): ')
+    return unidadMedida
+
+# Define la funcion pedir_lados_triangulo que pide los lados del triangulo
+def pedir_lados_triangulo():
+
     print('Dime los lados del triangulo: ')
 
     ladoA = pedirLado(1)
     
     ladoB = pedirLado(2)
 
-    ladoC = pedirLado(3)
+    ladoC = pedirLado(3)    
 
-    print(calcular_area(ladoA, ladoB, ladoC))
+    return ladoA, ladoB, ladoC
+
+# Define la funcion main
+def main():
+
+    # Unidad de medida
+    unidadMedida = pedir_unidad_medida()
+
+    # Asigna cada valor a cada variable
+    ladoA, ladoB, ladoC = pedir_lados_triangulo()
+
+    # Guarda el resultado de la funcion en una variable
+    area = calcular_area(ladoA, ladoB, ladoC)
+
+    # Se ajusta la medida al cuadrado
+    if unidadMedida == 'cm':
+        unidadMedida = 'cm²'
+    else:
+        unidadMedida = 'm²'
+
+    print(f'El area del triangulo es igual a: {area} {unidadMedida}')
 
 # Llama la funcion main
 if __name__ == '__main__':

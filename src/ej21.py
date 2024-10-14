@@ -1,3 +1,7 @@
+'''
+Este algoritmo invierte el orden de una palabra
+'''
+
 # Lee la palabra a invertir
 palabra = input('Introduce una palabra para invertir: ')
 # Invierte la palabra

@@ -1,3 +1,7 @@
+'''
+Este algoritmo convierte los grados Celsius en grados Fahrenheit
+'''
+
 # Funcion SIN PARAMETROS que lee la temperatura en Fahrenheit y la devuelve en Celsius
 def cambioCF():
     tempF = float(input('Introduce la temperatura en grados Fahrenheit: '))

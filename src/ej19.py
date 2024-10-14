@@ -1,3 +1,7 @@
+'''
+Este algoritmo calcula el numero de letras que tiene el nombre introducido
+'''
+
 # Lee el nombre
 nombre = input('Introduce tu nombre: ')
 # Lee el numero de letras del nombre

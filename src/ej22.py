@@ -1,3 +1,7 @@
+'''
+Este algoritmo escribe la vocal introducida en mayusculas en una frase introducida previamente 
+'''
+
 # Lee la frase
 frase = input("Introduce una frase: ")
 

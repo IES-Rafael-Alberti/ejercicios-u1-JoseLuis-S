@@ -1,3 +1,8 @@
+'''
+Este algoritmo muestra el precio de una barra de pan, ademas, calcula la cantidad descontada 
+por barra y el total del descuento
+'''
+
 # Lee el numero de barras vendidas
 panVendido = int(input('Introduce el numero de barras que no son del dia vendidas: '))
 

@@ -1,3 +1,7 @@
+'''
+Este algoritmo escribe un corremo Gmail en formato @ceu.es 
+'''
+
 # Lee el correo a cambiar
 correoGmail = input('Introduce tu correo Gmail: ')
 

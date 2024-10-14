@@ -1,3 +1,8 @@
+'''
+Este algoritmo calcula el interes que obtendras en los proximos 3 años en funcion
+del interes y del capital ingresado
+'''
+
 # Lee la cantidad inicial y el interes
 capitalInicial = float(input('Introduce el capital a invertir: '))
 interes = float(input('Introduce el interes en decimales (3% = 0.03): '))
@@ -13,6 +18,6 @@ capitalAño2 = round(capitalAño2, 2)
 capitalAño3 = round(capitalAño3, 2)
 
 print('Los rendimientos de los primeros 3 años son: ')
-print('-Primer año: ' + str(capitalAño1))
-print('-Segundo año: ' + str(capitalAño2))
-print('-Tercer año: ' + str(capitalAño3))
+print(f'-Primer año: {capitalAño1}')
+print(f'-Segundo año: {capitalAño2}')
+print(f'-Tercer año: {capitalAño3}')
