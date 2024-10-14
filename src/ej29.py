@@ -1,3 +1,10 @@
+'''
+Ej 29
+
+Este algoritmo saluda al usuario y calcula cuantos años le quedan por cumplir
+hasta los 125 años
+
+'''
 # Lee el nombre
 nom = input('Introduce tu nombre: ')
 # Declara la variable edad como una variable vacia

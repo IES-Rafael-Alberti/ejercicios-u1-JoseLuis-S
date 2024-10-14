@@ -1,5 +1,8 @@
 '''
+Ej 23
+
 Este algoritmo escribe un corremo Gmail en formato @ceu.es 
+
 '''
 
 # Lee el correo a cambiar

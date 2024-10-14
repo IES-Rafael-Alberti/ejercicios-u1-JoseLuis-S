@@ -1,5 +1,8 @@
 '''
+Ej 11
+
 Este algoritmo calcula la suma de todos los enteros hasta el numero introducido
+
 '''
 
 # Lee el numero para la serie

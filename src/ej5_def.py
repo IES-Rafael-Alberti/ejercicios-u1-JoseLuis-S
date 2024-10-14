@@ -1,9 +1,17 @@
 '''
+Ej 5 funciones
+
 Este algoritmo calcula el precio final de un producto añadiendole el IVA
+
+Funciones disponibles:
+    * calculoPrecio - calcula el precio de un producto con el IVA
+    * main - funcion main
 '''
 
-# Funcion que pide el precio e IVA, luego calcula el precio final
 def calculoPrecio():
+    ''' Lee un precio y una cantidad de IVA y calcula el precio con el 
+    % de IVA    
+    '''
     precio = float(input('Introduce el precio del artículo: '))
     iva = 0
     while (iva > 1 or iva <= 0):
@@ -12,8 +20,8 @@ def calculoPrecio():
     precioFinal = round(precioFinal, 2)
     print(f'El precio del articulo es: {precioFinal}')
 
-# Define la funcion main
 def main():
+    '''Funcion main'''
     calculoPrecio()
 
 # Llama a la funcion main

@@ -1,6 +1,9 @@
 '''
+Ej 15
+
 Este algoritmo calcula el interes que obtendras en los proximos 3 años en funcion
 del interes y del capital ingresado
+
 '''
 
 # Lee la cantidad inicial y el interes

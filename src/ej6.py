@@ -1,5 +1,8 @@
 '''
+Ej 6
+
 Este algoritmo calcula la cantidad de IVA que se ha pagado por un producto
+
 '''
 
 # Entrada del precio con IVA

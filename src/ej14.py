@@ -1,6 +1,9 @@
 '''
+Ej 14
+
 Este algoritmo calcula el peso total de un paquete segun la cantidad de payasos
 y muñecas que contenga
+
 '''
 
 # Guarda los valores del peso de los dos productos

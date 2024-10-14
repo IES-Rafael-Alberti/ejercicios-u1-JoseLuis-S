@@ -1,5 +1,8 @@
 '''
+Ej 8
+
 Este algoritmo calcula la suma de tres numeros
+
 '''
 
 # Declara el resultado

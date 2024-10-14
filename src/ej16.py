@@ -1,6 +1,9 @@
 '''
+Ej 16
+
 Este algoritmo muestra el precio de una barra de pan, ademas, calcula la cantidad descontada 
 por barra y el total del descuento
+
 '''
 
 # Lee el numero de barras vendidas

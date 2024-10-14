@@ -1,3 +1,11 @@
+'''
+Ej 30
+
+Este algoritmo imprime una serie que aumenta segun el usuario decide y termina en
+un numero que el usuario decide
+
+'''
+
 # Lee el numero de inicio
 inicio = int(input('Introduce un numero de inicio: '))
 

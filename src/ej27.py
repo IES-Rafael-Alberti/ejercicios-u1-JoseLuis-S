@@ -1,6 +1,9 @@
 '''
+Ej 27
+
 Este algoritmo calcula el precio por unidad de un producto y muestra su nombre,
 la cantidad y el precio por unidad
+
 '''
 
 # Lee los datos de nombre de producto, precio total de producto y numero de unidades de producto

@@ -14,7 +14,7 @@ def cambioCF():
     la temperatura tanto en grados fahrenheit como celsius
 
     Returns:
-        
+        str: La temperatura en celsius y fahrenheit
     '''
     tempF = float(input('Introduce la temperatura en grados Fahrenheit: '))
     tempC = ((tempF - 32) * 5) /  9

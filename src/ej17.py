@@ -1,5 +1,8 @@
 '''
+Ej 17
+
 Este algoritmo muestra por pantalla un nombre el numero de veces introducido
+
 '''
 
 # Lee el nombre

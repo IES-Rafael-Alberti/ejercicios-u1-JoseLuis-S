@@ -1,5 +1,8 @@
 '''
+Ej 12
+
 Este algoritmo calcula el IMC de una persona
+
 '''
 
 # Lee el peso y la altura 

@@ -1,5 +1,8 @@
 '''
+Ej 7
+
 Este algoritmo calcula la suma de tres numeros
+
 '''
 
 # Entrada de los numeros a operar

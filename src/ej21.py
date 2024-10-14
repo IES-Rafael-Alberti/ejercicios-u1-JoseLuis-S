@@ -1,5 +1,8 @@
 '''
+Ej 21
+
 Este algoritmo invierte el orden de una palabra
+
 '''
 
 # Lee la palabra a invertir

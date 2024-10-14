@@ -1,5 +1,8 @@
 '''
+Ej 19
+
 Este algoritmo calcula el numero de letras que tiene el nombre introducido
+
 '''
 
 # Lee el nombre

@@ -1,3 +1,10 @@
+'''
+Ej 28 
+
+Este algoritmo calcula la diferencia entre 2 numeros
+
+'''
+
 # Lee los dos numeros a comparar
 num1 = int(input('Introduce el primer numero entero: '))
 num2 = int(input('Introduce el segundo numero entero: '))
@@ -7,7 +14,7 @@ if (num1 == num2):
     print('Los números no pueden ser iguales.')
 
 # En caso de que num1 sea mayor que num2
-elif (num1 > num2):
+if (num1 > num2):
     # Calcula la diferencia
     num3 = num1 - num2
     # Muestra el resultado en pantalla

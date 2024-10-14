@@ -1,5 +1,8 @@
 '''
+Ej 13 
+
 Este algoritmo calcula la division entre dos numeros y te muestra el cociente y el resto
+
 '''
 
 # Lee tanto el dividendo como el divisor
