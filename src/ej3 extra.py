@@ -1,5 +1,8 @@
 '''
+Ej 3 Extra
+
 Este algoritmo hace una serie de operaciones con unos datos
+
 '''
 
 # Entrada de variables

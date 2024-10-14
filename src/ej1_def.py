@@ -1,17 +1,29 @@
 '''
-Este algoritmo pide un nombre al usuario y lo saluda
+
+Ej 1 funciones
+
+Este algoritmo saluda al nombre que el usuario introduce
+
+Funciones disponibles:
+    * nombre - recibe un str y lo devuelve en formato tittle
+    * main - funcion main
 '''
 
-# Funcion para leer nombre
-def nombre (nom):
+def nombre (nom: str) -> str:
+    ''' Recibe un nombre y lo devuelve en formato tittle
+
+    Args:
+        nom (str): Nombre de la persona a saludar
+    Returns:
+        str: Nombre de la persona a saludar en formato tittle
+
+    '''
     return nom.tittle
 
-# Define el main, lee las horas, el precio por hora y luego muestra la funcion por pantalla
 def main():
-    # Lee el nombre y saluda
+    ''''Funcion main'''
     nom = input('Introduce tu nombre: ')
     print('Hola,', nombre())
 
-# Llama la funcion main
 if __name__ == '__main__':
     main()

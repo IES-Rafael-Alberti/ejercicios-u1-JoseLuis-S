@@ -1,4 +1,6 @@
 '''
+Ej 2 
+
 Este algoritmo calcula el precio total por las horas trabajadas
 
 '''

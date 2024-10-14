@@ -1,15 +1,30 @@
 '''
+Ej 2 funciones
+
 Este algoritmo calcula el precio total por las horas trabajadas
+
+Funciones disponibles:
+    * pagoTotal - calcula el pago total por las horas trabajadas
+    * main - funcion main
+
 '''
 
-# Funcion para calcular el pago total por las horas trabajadas
-def pagoTotal (horas, precioHora):
+def pagoTotal (horas: float, precioHora: float) -> float:
+    ''' Recibe las horas y el precio por hora y devuelve el pago total
+
+    Args:
+        horas (float): Numero de horas trabajadas
+        precioHora (float): Precio por hora trabajada
+
+    Returns:
+        float: Pago total por horas
+    '''
     return horas * precioHora
 
-# Define el main, lee las horas, el precio por hora y luego muestra la funcion por pantalla
 def main():
-    horas = int(input('Introduce las horas trabajadas: '))
-    precioHora = int(input('Introduce el precio por hora: '))
+    '''Funcion main'''
+    horas = float(input('Introduce las horas trabajadas: '))
+    precioHora = float(input('Introduce el precio por hora: '))
     print('El total es', pagoTotal(horas, precioHora),'euros.')
 
 # Llama la funcion main

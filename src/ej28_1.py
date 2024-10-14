@@ -26,7 +26,7 @@ def calcularArea(ladoA: float, ladoB: float, ladoC: float) -> float:
         ladoC (float): Valor del tercer lado
 
     Returns:
-        area (float): Valor del area del triangulo
+        float: Valor del area del triangulo
     '''
     semiperimetro = (ladoA + ladoB + ladoC)/2
     area = math.sqrt( semiperimetro * (semiperimetro - ladoA) * (semiperimetro - ladoB) * (semiperimetro - ladoC))
@@ -64,7 +64,7 @@ def pedirLado(index: int) -> float:
         index (str): Orden del numero introducido (lado1, lado2 o lado3)
 
     Returns:
-        num (float): Valor del lado 
+        float: Valor del lado introducido
 
     '''
     # Muestra los mensajes en funcion del orden de los lados 1,2,3
@@ -78,7 +78,7 @@ def pedir_unidad_medida() -> str:
     '''Pide la unidad de medida (cm o m) y comprueba que sea una de las dos posibles
 
     Returns:
-        unidadMedida (str): El usuario elige entre cm o m
+        str: Unidad de medida elegida por el usuario
     '''
     unidadMedida = input('Introduce la unidad de medida (cm o m): ')
 
@@ -90,9 +90,7 @@ def pedir_lados_triangulo() -> float:
     '''Pide los tres lados del triangulo 
     
     Returns:
-        ladoA (float): Valor del primer lado
-        ladoB (float): Valor del segundo lado
-        ladoC (float): Valor del tercer lado
+        tuple: Valores de los lados del triangulo
     '''
 
     print('Dime los lados del triangulo: ')
