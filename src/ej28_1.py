@@ -1,58 +1,99 @@
 '''
-Este algoritmo calcula el area de un triangulo, en m o cm, a partir de tres lados
+
+Ejercicio 28_1
+
+Este algoritmo calcula el area de un triangulo, en m o cm, a partir de los 3 lados
+de un triangulo
+
+Funciones disponibles:
+    * calcularArea - calcula el area de un triangulo dado sus 3 lados
+    * comprobarNum - comprueba si el valor introducido es un numero
+    * pedirLado - pide al usuario que introduzca los valores de los lados del triangulo
+    * pedir_unidad_medida - pide al usuario que introduzca la unidad de medida
+    * pedir_lados_triangulo - pide al usuario los tres lados del triángulo
+    * main - funcion main
+
 '''
 
 import math
 
-# Define la funcion calcular area que calcula el area en funcion de 3 lados
-def calcular_area (ladoA, ladoB, ladoC):
+def calcularArea(ladoA: float, ladoB: float, ladoC: float) -> float: 
+    '''Calcula el area de un triangulo usando una formula matematica
+
+    Args:
+        ladoA (float): Valor del primer lado
+        ladoB (float): Valor del segundo lado
+        ladoC (float): Valor del tercer lado
+
+    Returns:
+        area (float): Valor del area del triangulo
+    '''
     semiperimetro = (ladoA + ladoB + ladoC)/2
     area = math.sqrt( semiperimetro * (semiperimetro - ladoA) * (semiperimetro - ladoB) * (semiperimetro - ladoC))
-    return area
+    return float(area)
 
-# Define la funcion comprobarNum que comprueba que el numero introducido sea un numero
-def comprobarNum(num: str):
-    # Elimina los espacios tras convertir num en str
+def comprobarNum(num: str) -> bool:
+    '''Comprueba que el numero introducido sea un numero y no un str
+
+    Args:
+        num (str): Valor del numero introducido
+
+    Returns: 
+        bool: Retorna True si es un numero o False en caso de que no
+    '''
     num = num.strip()
 
-    # Comprueba que el numero no contenga mas de un .- o que no contenga algun - en mitad
-    # del numero
+    # Comprueba que el numero no tenga mas de 1 .- o que no tenga - en medio
     if num.count('.') > 1 or num.count('-') > 1 or (num.count('-') == 1 and num[0] != '-'):
         return False
 
-    # Comprueba con un for que los el valor introducido no contenga letras
     for i in num:
         if i not in '0123456789.-':
             return False 
     
-    # Comprueba que no se haya dado el valor de un solo - o .
     if num == '-' or num == '.':
         return False
 
     return True
 
-# Define la funcion pedirNum, que lee un numero y lo devuelve
-def pedirLado(index):
-    # En funcion de que lado quiera pedir muestra un mensaje u otro
+def pedirLado(index: int) -> float:
+    '''Pide los 3 lados del triangulo y ejecuta la funcion comprobarNum para asegurar
+    que los valores introducidos sean numeros
+
+    Args:
+        index (str): Orden del numero introducido (lado1, lado2 o lado3)
+
+    Returns:
+        num (float): Valor del lado 
+
+    '''
+    # Muestra los mensajes en funcion del orden de los lados 1,2,3
     mensajes = ["Introduce el primer lado: ", "Introduce el segundo lado: ", "Introduce el tercer lado: "]
     num = input(mensajes[index - 1])
-    # Llama a la funcion comprobar para asegurar que el valor introducido
-    # sea un numero
     while not comprobarNum(num):
         num = input('ERROR, introduce un numero: ')
     return float(num)
 
-# Define la funcion pedir_unidad_medida que pide si la unidad es cm o m
-def pedir_unidad_medida():
+def pedir_unidad_medida() -> str:
+    '''Pide la unidad de medida (cm o m) y comprueba que sea una de las dos posibles
+
+    Returns:
+        unidadMedida (str): El usuario elige entre cm o m
+    '''
     unidadMedida = input('Introduce la unidad de medida (cm o m): ')
 
-    # Mientras la unidad no sea cm o m seguira pidiendo la unidad
     while unidadMedida != 'cm' and unidadMedida != 'm':
         unidadMedida = input('ERROR, introduce la unidad de medida (cm o m): ')
     return unidadMedida
 
-# Define la funcion pedir_lados_triangulo que pide los lados del triangulo
-def pedir_lados_triangulo():
+def pedir_lados_triangulo() -> float:
+    '''Pide los tres lados del triangulo 
+    
+    Returns:
+        ladoA (float): Valor del primer lado
+        ladoB (float): Valor del segundo lado
+        ladoC (float): Valor del tercer lado
+    '''
 
     print('Dime los lados del triangulo: ')
 
@@ -62,21 +103,17 @@ def pedir_lados_triangulo():
 
     ladoC = pedirLado(3)    
 
-    return ladoA, ladoB, ladoC
+    return float(ladoA), float(ladoB), float(ladoC)
 
-# Define la funcion main
 def main():
+    '''Funcion main'''
 
-    # Unidad de medida
     unidadMedida = pedir_unidad_medida()
 
-    # Asigna cada valor a cada variable
     ladoA, ladoB, ladoC = pedir_lados_triangulo()
 
-    # Guarda el resultado de la funcion en una variable
-    area = calcular_area(ladoA, ladoB, ladoC)
+    area = calcularArea(ladoA, ladoB, ladoC)
 
-    # Se ajusta la medida al cuadrado
     if unidadMedida == 'cm':
         unidadMedida = 'cm²'
     else:
@@ -84,6 +121,5 @@ def main():
 
     print(f'El area del triangulo es igual a: {area} {unidadMedida}')
 
-# Llama la funcion main
 if __name__ == '__main__':
     main()
