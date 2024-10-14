@@ -26,20 +26,11 @@ def comprobarNum(num: str):
     # Elimina los espacios tras convertir num en str
     num = num.strip()
 
-    # Comprueba que el numero introducido no sea un decimal ni un 
-    # numero negativo
-    if num.count('.') >= 1 or num.count('-') >= 1 or (num.count('-') == 1 and num[0] != '-'):
-        return False
-
-    # Comprueba con un for que los el valor introducido no contenga letras
+    # Comprueba con un for que los el valor introducido sea un numero entero
     for i in num:
         if i not in '0123456789.-':
             return False 
     
-    # Comprueba que no se haya dado el valor de un solo -
-    if num == '-':
-        return False
-
     return True
 
 # Define la funcion main

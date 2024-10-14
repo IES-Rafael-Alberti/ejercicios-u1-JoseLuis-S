@@ -36,6 +36,7 @@ def pedirLado(index):
         num = input('ERROR, introduce un numero: ')
     return float(num)
 
+# Define la funcion main
 def main():
     print('Dime los lados del triangulo: ')
 
