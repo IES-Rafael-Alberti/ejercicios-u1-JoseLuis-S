@@ -9,8 +9,8 @@ Funciones disponibles:
     * calcularArea - calcula el area de un triangulo dado sus 3 lados
     * comprobarNum - comprueba si el valor introducido es un numero
     * pedirLado - pide al usuario que introduzca los valores de los lados del triangulo
-    * pedir_unidad_medida - pide al usuario que introduzca la unidad de medida
-    * pedir_lados_triangulo - pide al usuario los tres lados del triángulo
+    * pedirUnidadMedida - pide al usuario que introduzca la unidad de medida
+    * pedirLadosTriangulo - pide al usuario los tres lados del triángulo
     * main - funcion main
 
 '''
@@ -74,7 +74,7 @@ def pedirLado(index: int) -> float:
         num = input('ERROR, introduce un numero: ')
     return float(num)
 
-def pedir_unidad_medida() -> str:
+def pedirUnidadMedida() -> str:
     '''Pide la unidad de medida (cm o m) y comprueba que sea una de las dos posibles
 
     Returns:
@@ -86,7 +86,7 @@ def pedir_unidad_medida() -> str:
         unidadMedida = input('ERROR, introduce la unidad de medida (cm o m): ')
     return unidadMedida
 
-def pedir_lados_triangulo() -> float:
+def pedirLadosTriangulo() -> float:
     '''Pide los tres lados del triangulo 
     
     Returns:
@@ -106,16 +106,11 @@ def pedir_lados_triangulo() -> float:
 def main():
     '''Funcion main'''
 
-    unidadMedida = pedir_unidad_medida()
+    unidadMedida = pedirUnidadMedida() + '²'
 
-    ladoA, ladoB, ladoC = pedir_lados_triangulo()
+    ladoA, ladoB, ladoC = pedirLadosTriangulo()
 
     area = calcularArea(ladoA, ladoB, ladoC)
-
-    if unidadMedida == 'cm':
-        unidadMedida = 'cm²'
-    else:
-        unidadMedida = 'm²'
 
     print(f'El area del triangulo es igual a: {area} {unidadMedida}')
 
