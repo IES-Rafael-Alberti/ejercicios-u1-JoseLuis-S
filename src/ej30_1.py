@@ -1,6 +1,22 @@
-# Define la funcion comprobarPrimo que comprueba si un numero es primo o no
-def comprobarPrimo(num):
+'''
+Ej 30_1 
 
+Este algoritmo comprueba si el numero introducido es un numero primo o no
+
+Funciones disponibles:
+    * comprobarPrimo - comprueba si un numero es primo o no
+    * pedirNum - pide un numero al usuario
+    * comprobarNum - comprueba que un valor introducido sea un numero entero
+    * main - funcion main
+'''
+
+def comprobarPrimo(num: int):
+    '''Comprueba si el numero introducido es un numero primo o no
+
+    Args: 
+        num (int): Numero a comprobar si es primo o no
+    
+    '''
     numDivisores = 0
 
     # Con este bucle for se calcula el numero de divisores,
@@ -20,9 +36,13 @@ def comprobarPrimo(num):
     else:
         print(f'El numero {num} es un numero primo.')    
 
-# Define la funcion pedirNum, que lee un numero y lo devuelve
-def pedirNum():
-    # Lee el numero
+def pedirNum() -> int:
+    ''' Pide un numero al usuario
+
+    Returns:
+        int: Devuelve el numero que introduce el usuario
+    
+    '''
     num = input('Introduce el numero entero a comprobar: ')
     # Llama a la funcion comprobar para asegurar que el valor introducido
     # sea un numero
@@ -30,9 +50,16 @@ def pedirNum():
         num = input('ERROR, introduce un numero: ')
     return int(num)
 
-# Define la funcion comprobarNum que asegura que el numero introducido sea
-# un entero natural
-def comprobarNum(num: str):
+def comprobarNum(num: str) -> bool:
+    ''' Comprueba que el numero introducido sea un numero entero
+    
+    Args:
+        num (str): Numero introducido por el usuari
+    
+    Returns:
+        bool: Retorna True si es un numero entero y False si no lo es
+        
+    '''
     # Elimina los espacios tras convertir num en str
     num = num.strip()
 
@@ -43,11 +70,10 @@ def comprobarNum(num: str):
 
     return True
 
-# Define la funcion main
 def main():
+    '''Funcion main'''
     num = pedirNum()
     comprobarPrimo(num)
 
-# Ejecuta la funcion main
 if __name__ == '__main__':
     main()

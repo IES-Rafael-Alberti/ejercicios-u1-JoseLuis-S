@@ -1,5 +1,26 @@
-# Define la funcion divisoresNum que calcula los divisores de un numero
-def divisoresNum(num):
+'''
+Ej 31
+
+Este algoritmo muestra todos los divisores que tiene un numero entero
+
+Funciones disponibles:
+    * divisoresNum - calcula todos los divisores de un numero entero
+    * pedirNum - pide un numero entero al usuario
+    * comprobarNum - comprueba que el numero introducido sea un numero entero
+    * main - funcion main
+
+'''
+
+def divisoresNum(num: int) -> list:
+    ''' Calcula los divisores de un numero 
+
+    Args:
+        num (int): Numero para el que comprobar los divisores
+
+    Returns:
+        list: Lista con los divisores del numero
+
+    '''
     # Crea una lista para guardar los divisores del numero introducido
     divisores = []
     # Comprueba desde 1 hasta el mismo numero los divisores y los va guardando
@@ -10,9 +31,13 @@ def divisoresNum(num):
             divisores.append(i)
     return divisores
 
-# Define la funcion pedirNum, que lee un numero y lo devuelve
-def pedirNum():
-    # Lee el numero
+def pedirNum() -> int:
+    ''' Pide un numero entero al usuario
+
+    Returns: 
+        int: Devuelve un numero entero introducido por el usuario 
+    
+    '''
     num = input('Introduce un numero entero para saber sus divisores: ')
     # Llama a la funcion comprobar para asegurar que el valor introducido
     # sea un numero
@@ -20,9 +45,16 @@ def pedirNum():
         num = input('ERROR, introduce un numero entero: ')
     return int(num)
 
-# Define la funcion comprobarNum que asegura que el numero introducido sea
-# un entero natural
-def comprobarNum(num: str):
+def comprobarNum(num: str) -> bool:
+    ''' Comprueba que el numero introducido sea un numero entero
+    
+    Args:
+        num (str): Numero introducido por el usuari
+    
+    Returns:
+        bool: Retorna True si es un numero entero y False si no lo es
+        
+    '''
     # Elimina los espacios tras convertir num en str
     num = num.strip()
 
@@ -33,12 +65,11 @@ def comprobarNum(num: str):
     
     return True
 
-# Define la funcion main
 def main():
+    '''Funcion main'''
     num = pedirNum()
     divisores = divisoresNum(num)
     print(f'Los divisores de {num} son: {divisores}')
 
-# Ejecuta la funcion main
 if __name__ == '__main__':
     main()
