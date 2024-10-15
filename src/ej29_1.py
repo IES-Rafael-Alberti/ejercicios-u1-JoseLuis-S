@@ -25,12 +25,12 @@ def resultado(comparacion: bool, num1: float, num2: float, num3: float):
         num3 = Variable temporal
     '''
     if comparacion == False:
-        print('Un numero aleatorio entre', num1 ,'y', num2, 'es', numeroRandom(num1, num2))
+        return 'Un numero aleatorio entre', num1 ,'y', num2, 'es', numeroRandom(num1, num2)
     else:
         num3 = num1
         num1 = num2
         num2 = num3
-        print('Un numero aleatorio entre', num1 ,'y', num2, 'es', numeroRandom(num1, num2))
+        return 'Un numero aleatorio entre', num1 ,'y', num2, 'es', numeroRandom(num1, num2)
 
 def comprobarNum(num: str) -> bool:
     '''Comprueba que el numero introduce sea un numero
@@ -118,7 +118,10 @@ def main():
     num3 = 0
 
     comparacion = compararNums(num1, num2)
-    resultado(comparacion, num1, num2, num3)
+    
+    resultado = resultado(comparacion, num1, num2, num3)
+
+    print(resultado)
 
 if __name__ == '__main__':
     main()

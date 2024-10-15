@@ -101,7 +101,32 @@ def pedirLadosTriangulo() -> float:
 
     ladoC = pedirLado(3)    
 
+    while not comprobarTriangulo(ladoA, ladoB, ladoC):
+
+        print('ERROR, los lados no forman un triángulo valido.')
+
+        ladoA = pedirLado('Introduce el primer lado: ')
+
+        ladoB = pedirLado('Introduce el segundo lado: ')
+
+        ladoC = pedirLado('Introduce el tercer lado: ')
+
     return float(ladoA), float(ladoB), float(ladoC)
+
+def comprobarTriangulo(ladoA: float, ladoB: float, ladoC: float) -> bool:
+    '''Comprueba si los lados forman un triangulo valido basandose en el 
+    teorema de Pitagoras 
+
+    Args:
+        ladoA (float): Primer lado del triangulo
+        ladoB (float): Segundo lado del triangulo
+        ladoC (float): Tercer lado del triangulo
+    
+    Returns:
+        bool: Retorna True si los lados forman un triangulo o False si no
+
+    '''
+    return ladoA + ladoB > ladoC and ladoA + ladoC > ladoB and ladoB + ladoC > ladoA
 
 def main():
     '''Funcion main'''

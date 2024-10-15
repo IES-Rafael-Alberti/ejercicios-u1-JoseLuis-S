@@ -10,11 +10,15 @@ Funciones disponibles:
     * main - funcion main
 '''
 
-def comprobarPrimo(num: int):
+def comprobarPrimo(num: int) -> str:
     '''Comprueba si el numero introducido es un numero primo o no
 
     Args: 
         num (int): Numero a comprobar si es primo o no
+
+    Returns:
+        str: Devuelve un mensaje en funcion de si el numero es
+        primo o no
     
     '''
     numDivisores = 0
@@ -32,9 +36,9 @@ def comprobarPrimo(num: int):
     # Si tiene mas de 1 divisor (ya que todos los numeros son divisibles
     # entre 1) no es un numero primo y viceversa
     if numDivisores > 1:
-        print(f'El numero {num} no es un numero primo.')
+        return (f'El numero {num} no es un numero primo.')
     else:
-        print(f'El numero {num} es un numero primo.')    
+        return (f'El numero {num} es un numero primo.')    
 
 def pedirNum() -> int:
     ''' Pide un numero al usuario
@@ -73,7 +77,8 @@ def comprobarNum(num: str) -> bool:
 def main():
     '''Funcion main'''
     num = pedirNum()
-    comprobarPrimo(num)
+    comprobacion = comprobarPrimo(num)
+    print(comprobacion)
 
 if __name__ == '__main__':
     main()
