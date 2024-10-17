@@ -32,6 +32,12 @@ MENSAJE_INICIAL = '''
 MENSAJES_INTENTOS = ('Primer intento', 'Segundo intento', 'Tercer intento', 'Cuarto intento', 
 'Quinto intento', 'Sexto intento', 'Septimo intento')
 
+RANGO_MIN = 0
+
+def separar_intentos_rango(dificultad: tuple) -> tuple:
+    return dificultad[0], dificultad[1]
+
+
 def modo_dificultad() -> tuple: 
     '''
     Selecciona el modo de dificultad que tendra el juego
@@ -55,24 +61,23 @@ def modo_dificultad() -> tuple:
         return 3, 200
 
 
-def generar_numero_random(dificultad: tuple) -> int:
+def generar_numero_random(RANGO_MIN: int,rango_maximo: int) -> int:
     '''
 
     Genera un numero aleatorio
 
     Args: 
-        dificultad (tuple): En funcion de la dificultad el rango del numero
-        a generar sera mayor o menor
+        rango_maximo (int): Rango maximo del juego
 
     Returns:
         int: Devuelve un numero aleatorio entre 0 y 100
     
     '''
     
-    return random.randint(0, dificultad[1])
+    return random.randint(RANGO_MIN, rango_maximo)
 
 
-def pedir_num(dificultad: tuple) -> int:
+def pedir_num(rango_maximo: tuple) -> int:
     ''' 
     
     Pide un numero al usuario
@@ -84,15 +89,15 @@ def pedir_num(dificultad: tuple) -> int:
         int: Devuelve un numero introducido por el usuario
 
     '''
-    num = input(f'¡Prueba suerte! Introduce un numero entre 0 y {dificultad[1]}: ')
+    num = input(f'¡Prueba suerte! Introduce un numero entre 0 y {rango_maximo}: ')
     print()
-    while not comprobar_num(num, dificultad):
-        num = input(f'ERROR, introduce un numero entre 0 y {dificultad[1]}: ')
+    while not comprobar_num(num, rango_maximo):
+        num = input(f'ERROR, introduce un numero entre 0 y {rango_maximo}: ')
         print()
     return int(num)
 
 
-def comprobar_num(num: str, dificultad: tuple) -> bool:
+def comprobar_num(num: str, rango_maximo: int) -> bool:
     '''
     
     Comprueba que el numero introduce sea un numero entero y que este
@@ -100,7 +105,7 @@ def comprobar_num(num: str, dificultad: tuple) -> bool:
     
     Args: 
         num (str): Numero que introduce el usuario
-        dificultad (tuple): Dificultad del juego
+        rango_maximo (int): Rango maximo del juego
 
     Returns: 
         bool: Retorna True si es un numero y False si no lo es 
@@ -111,7 +116,7 @@ def comprobar_num(num: str, dificultad: tuple) -> bool:
     if num.isdigit():
         num = int(num)
 
-        if 0 <= num <= dificultad[1]:
+        if 0 <= num <= rango_maximo:
             return True
         else:
             return False
@@ -250,11 +255,10 @@ def main():
     print(MENSAJE_INICIAL)
 
     dificultad = modo_dificultad()
-    
-    num_a_adivinar = generar_numero_random(dificultad)
-    print(num_a_adivinar)
+    total_intentos, rango_maximo = separar_intentos_rango(dificultad)
 
-    total_intentos = dificultad[0]
+    num_a_adivinar = generar_numero_random(RANGO_MIN, rango_maximo)
+
     intento = 0
     acertaste = False
     print(f'\nIntenta adivinar el numero, tienes {total_intentos} intentos\n')
@@ -263,13 +267,13 @@ def main():
 
         print(MENSAJES_INTENTOS[intento] + "...\n")
 
-        num_usuario = pedir_num(dificultad)
+        num_usuario = pedir_num(rango_maximo)
         acertaste = comprobar_acierto(num_a_adivinar, num_usuario)
         intento += 1
 
         if acertaste:
             print(f'\nFelicidades! El numero a adivinar era el {num_a_adivinar}.')
-            puntaje = int((100 - intento * 10) * (dificultad[1]/100))
+            puntaje = int((100 - intento * 10) * (rango_maximo/100))
             print(f'Obtuviste: {puntaje} puntos, enhorabuena.')
         elif intento < total_intentos:
             print(generar_pista(num_a_adivinar, num_usuario) + "\n")
