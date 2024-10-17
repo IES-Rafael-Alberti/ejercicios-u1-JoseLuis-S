@@ -6,6 +6,7 @@ para ello tiene 5 intentos. El algoritmo da pistas en funcion de si esta por enc
 abajo del numero
 
 Funciones disponibles:
+    * modo_dificultad - selecciona la dificultad que tendra el juego
     * generar_numero_random - genera el numero a adivinar por el usuario 
     * pedir_num - pide el numero al usuario 
     * comprobar_num - comprueba que el numero sea valido (entero y en el rango de 0-100)
@@ -15,38 +16,83 @@ Funciones disponibles:
     absoluta
     * frio_caliente - da pistas al usuario sobre si esta cerca por arriba o por abajo del 
     numero a adivinar
+    * main - funcion main
 
 '''
 import random
 
-def generar_numero_random() -> int:
+MENSAJE_INICIAL = '''
+****************************************
+*** ¡Bienvenido a Adivina el Numero! ***
+****************************************
+¿Que tan habil seras?
+¿Conseguiras los 180 puntos?
+'''
+
+MENSAJES_INTENTOS = ('Primer intento', 'Segundo intento', 'Tercer intento', 'Cuarto intento', 
+'Quinto intento', 'Sexto intento', 'Septimo intento')
+
+def modo_dificultad() -> tuple: 
+    '''
+    Selecciona el modo de dificultad que tendra el juego
+
+    Returns:
+        tuple: El numero de intentos y el rango hasta el cual
+        generar el numero aleatorio
+    
+    '''
+    dificultad = input('Facil(1)\nMedio(2)\nDificil(3)\nSelecciona la dificultad: ')
+
+    while dificultad not in ('1', '2', '3'):
+        dificultad = input('**DIFICULTAD NO VALIDA**\nFacil(1)\nMedio(2)\nDificil(3)\nSelecciona la dificultad: ')
+
+    # El primer valor son los intentos y el segundo el rango
+    if dificultad == '1':
+        return 7, 50
+    elif dificultad == '2':
+        return 5, 100
+    else:
+        return 3, 200
+
+
+def generar_numero_random(dificultad: tuple) -> int:
     '''
 
     Genera un numero aleatorio
+
+    Args: 
+        dificultad (tuple): En funcion de la dificultad el rango del numero
+        a generar sera mayor o menor
 
     Returns:
         int: Devuelve un numero aleatorio entre 0 y 100
     
     '''
-    return random.randint(0, 100)
+    
+    return random.randint(0, dificultad[1])
 
-def pedir_num() -> int:
+
+def pedir_num(dificultad: tuple) -> int:
     ''' 
     
     Pide un numero al usuario
+
+    Args:
+        dificultad (tuple): Dificultad del juego
 
     Returns:
         int: Devuelve un numero introducido por el usuario
 
     '''
-    num = input('¡Prueba suerte! Introduce un numero entre 0 y 100: ')
+    num = input(f'¡Prueba suerte! Introduce un numero entre 0 y {dificultad[1]}: ')
     print()
-    while not comprobar_num(num):
-        num = input('ERROR, introduce un numero entre 0 y 100: ')
+    while not comprobar_num(num, dificultad):
+        num = input(f'ERROR, introduce un numero entre 0 y {dificultad[1]}: ')
         print()
     return int(num)
 
-def comprobar_num(num: str) -> bool:
+
+def comprobar_num(num: str, dificultad: tuple) -> bool:
     '''
     
     Comprueba que el numero introduce sea un numero entero y que este
@@ -54,6 +100,7 @@ def comprobar_num(num: str) -> bool:
     
     Args: 
         num (str): Numero que introduce el usuario
+        dificultad (tuple): Dificultad del juego
 
     Returns: 
         bool: Retorna True si es un numero y False si no lo es 
@@ -64,12 +111,13 @@ def comprobar_num(num: str) -> bool:
     if num.isdigit():
         num = int(num)
 
-        if 0 <= num <= 100:
+        if 0 <= num <= dificultad[1]:
             return True
         else:
             return False
     else:
         return False
+
 
 def comprobar_acierto(numA: int, numU: int) -> bool:
     '''
@@ -87,6 +135,7 @@ def comprobar_acierto(numA: int, numU: int) -> bool:
     '''
     return numA == numU
 
+
 def calcular_diferencia(numA: int, numU: int) -> int:
     '''
     
@@ -101,13 +150,10 @@ def calcular_diferencia(numA: int, numU: int) -> int:
         int: La diferencia absoluta entre los dos numeros
     
     '''
-    if comparar_nums(numA, numU) is True:
-        diferencia = abs(numA - numU)
-    else:
-        diferencia = abs(numU - numA)
-    return diferencia
+    return abs(numA - numU)
 
-def comparar_nums(numA: int, numU: int) -> bool:
+
+def numero_oculto_es_mayor(numA: int, numU: int) -> bool:
     '''
     
     Compara que numero es mayor de los dos
@@ -123,6 +169,7 @@ def comparar_nums(numA: int, numU: int) -> bool:
     '''
     return numA > numU
 
+
 def frio_caliente(numA: int, numU: int, diferencia: int) -> str:
     '''
 
@@ -133,40 +180,65 @@ def frio_caliente(numA: int, numU: int, diferencia: int) -> str:
     Args:
         numA (int): Numero aleatorio generado
         numU (int): Numero introducido por el usuario
+        diferencia (int): Diferencia entre ambos numeros
 
     Returns:
         str: Retorna una pista
 
     '''
-
-    if comparar_nums(numA, numU) is True:
+    if numero_oculto_es_mayor(numA, numU):
 
         if diferencia < 5:
             return 'TE VAS A QUEMAAR!!! Sube un poquito'
         elif diferencia < 10:
-            return 'Estas a punto de quemarte, aumenta.'
+            return 'Estás a punto de quemarte, aumenta.'
         elif diferencia < 30:
             return 'Caliente, caliente, sigue subiendo'
         elif diferencia < 50:
-            return 'Hace un poco de frio por aqui. Tiene que subir.'
+            return 'Hace un poco de frío por aquí. Tiene que subir.'
         elif diferencia < 70:
-            return 'No sabia que estabamos en Noruega. Aumenta mas.' 
+            return 'No sabía que estabamos en Noruega. Aumenta más.' 
+        elif diferencia < 100:
+            return 'Acabo de ver pasar un pingüino. Sube, sube.'
+        elif diferencia < 150:
+            return '¿Que hace aqui Papa Noel? Ve subiendo.'
         else:
-            return 'Que frio, parece que estamos en la carniceria del Makro. Tienes que aumentar.'
+            return 'Que frío, parece que estamos en la carnicería del Makro. Tienes que aumentar.'
     
     else:
         if diferencia < 5:
             return 'TE VAS A QUEMAAR!!! Baja un poquito'
         elif diferencia < 10:
-            return 'Estas a punto de quemarte, disminuye.'
+            return 'Estás a punto de quemarte, disminuye.'
         elif diferencia < 30:
             return 'Caliente, caliente, sigue bajando'
         elif diferencia < 50:
-            return 'Hace un poco de frio por aqui. Tiene que bajar.'
+            return 'Hace un poco de frío por aquí. Tiene que bajar.'
         elif diferencia < 70:
-            return 'No sabia que estabamos en Noruega. Disminuye mas.' 
+            return 'No sabía que estabamos en Noruega. Disminuye más.' 
+        elif diferencia < 100:
+            return 'Acabo de ver pasar un pingüino. Baja, baja.'
+        elif diferencia < 150:
+            return '¿Que hace aqui Papa Noel? Ve bajando.'
         else:
-            return 'Que frio, parece que estamos en la carniceria del Makro. Tienes que bajar.'
+            return 'Que frío, parece que estamos en la carniceria del Makro. Tienes que bajar.'
+
+
+def generar_pista(num_a_adivinar: int, num_usuario: int) -> str:
+    '''
+    Genera una pista
+
+    Args:
+        num_a_adivinar (int): Numero que debe adivinar el usuario
+        num_usuario (int): Numero del usuario
+
+    Returns:
+        str: Retorna una cadena de caracteres con una pista
+    
+    '''
+    diferencia = calcular_diferencia(num_a_adivinar, num_usuario)
+    pista = frio_caliente(num_a_adivinar, num_usuario, diferencia)
+    return pista
 
 
 def main():
@@ -175,30 +247,36 @@ def main():
     Funcion main
     
     '''
-    print('\nIntenta adivinar el numero, tienes 5 intentos\nPrimer intento\n')
+    print(MENSAJE_INICIAL)
 
-    num_a_adivinar = generar_numero_random()
-    num_usuario = pedir_num()
-    comprobacion = False
-    mensajes = ['Segundo intento.', 'Tercer intento.','Cuarto intento', 'Ultimo intento.']
-
+    dificultad = modo_dificultad()
     
-    for i in range (0,4):
+    num_a_adivinar = generar_numero_random(dificultad)
+    print(num_a_adivinar)
 
-        if comprobacion is False:
-            print(mensajes[i])
-            diferencia = calcular_diferencia(num_a_adivinar, num_usuario)
-            pista = frio_caliente(num_a_adivinar, num_usuario, diferencia)
-            print(pista)
-            print()
-            num_usuario = pedir_num()
-            comprobacion = comprobar_acierto(num_a_adivinar, num_usuario)
+    total_intentos = dificultad[0]
+    intento = 0
+    acertaste = False
+    print(f'\nIntenta adivinar el numero, tienes {total_intentos} intentos\n')
 
-        else:
-            print(f'\nFelicidades! El numero a adivinar era {num_a_adivinar}.')
+    while (not acertaste) and (intento < total_intentos):
 
-    if comprobacion is False:
-        print('Mala suerte no lo lograste.')
+        print(MENSAJES_INTENTOS[intento] + "...\n")
+
+        num_usuario = pedir_num(dificultad)
+        acertaste = comprobar_acierto(num_a_adivinar, num_usuario)
+        intento += 1
+
+        if acertaste:
+            print(f'\nFelicidades! El numero a adivinar era el {num_a_adivinar}.')
+            puntaje = int((100 - intento * 10) * (dificultad[1]/100))
+            print(f'Obtuviste: {puntaje} puntos, enhorabuena.')
+        elif intento < total_intentos:
+            print(generar_pista(num_a_adivinar, num_usuario) + "\n")
+
+    if not acertaste:
+        print(f'Mala suerte no lo lograste. El numero a adivinar era el {num_a_adivinar}.')
+
 
 if __name__ == '__main__':
     main()
